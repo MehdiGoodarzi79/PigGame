@@ -16,15 +16,12 @@ const btn_roll = document.querySelector('.btn-roll-dice');
 const btn_hold = document.querySelector('.btn-hold-score');
 
 
-
-
 score0.textContent = 0;
 score1.textContent = 0;
 let scores = [0, 0];
 let activeplayer = 0;
 let currentscore = 0;
 let playing = true;
-
 
 
 
@@ -37,10 +34,12 @@ const newGame = function () {
   score1.textContent = 0;
   current0.textContent = 0;
   current1.textContent = 0;
-
+  dice.classList.remove("hidden");
   player0.classList.add('active-player');
   player1.classList.remove('active-player');
-  
+  document.querySelector("body").style.background = "#69cbc0" ;
+  document.querySelector(".btn-hold-score").style.backgroundColor = "#e64980" ;
+  document.querySelector(".btn-roll-dice").style.backgroundColor = "#228be6" ;
 };
 newGame();
 
@@ -72,7 +71,13 @@ btn_hold.addEventListener('click', function () {
     document.getElementById(`player-${activeplayer}-score`).textContent = scores[activeplayer];
     if (scores[activeplayer] >= 100) {
       playing = false;
-      
+      dice.classList.add("hidden");
+
+      document.querySelector(".btn-hold-score").style.backgroundColor = "#333" ;
+      document.querySelector(".btn-roll-dice").style.backgroundColor = "#333" ;
+
+      document.querySelector("body").style.background = "#e64980" ;
+      document.getElementById(`player-${activeplayer}-current-amount`).textContent = "🎉";
       document.querySelector(`.player-${activeplayer}`).classList.remove('active-player'); 
     } else {
       switchPlayer();
