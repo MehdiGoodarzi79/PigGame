@@ -15,14 +15,12 @@ const btn_new = document.querySelector('.btn-new-game');
 const btn_roll = document.querySelector('.btn-roll-dice');
 const btn_hold = document.querySelector('.btn-hold-score');
 
-
 score0.textContent = 0;
 score1.textContent = 0;
 let scores = [0, 0];
 let activeplayer = 0;
 let currentscore = 0;
 let playing = true;
-
 
 
 const newGame = function () {
